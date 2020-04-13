@@ -12,8 +12,8 @@ func Test_minWindow(t *testing.T) {
 		args args
 		want string
 	}{
-		{"ADOBECODEBANC",args{"ADOBECODEBANC","ABC"},"BANC"},
-		{"aicvjgkowekgnkgdfl",args{"aicvjgkowekgnkgdfl","keg"},"d"},
+		{"ADOBECODEBANC", args{"ADOBECODEBANC", "ABC"}, "BANC"},
+		{"aicvjgkowekgnkgdfl", args{"aicvjgkowekgnkgdfl", "keg"}, "ekg"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

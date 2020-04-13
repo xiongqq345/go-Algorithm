@@ -1,7 +1,6 @@
 package leetcode
 
 func minWindow(s string, t string) string {
-
 	if len(s) < len(t) {
 		return ""
 	}
@@ -10,38 +9,22 @@ func minWindow(s string, t string) string {
 		hash[t[i]]++
 	}
 
-	l, r := 0, 0
-	sw := s[l:r]
-	minStr := sw
-	for r = 1; r < len(s); r++ {
-		if hash[s[r]] == 1 {
-			hash[s[r]]++
+	l, count, min, res := 0, len(t), len(s)+1, ""
+	for r := 0; r < len(s); r++ {
+		hash[s[r]]--
+		if hash[s[r]] >= 0 {
+			count--
 		}
-		switch hash[s[l]] {
-		case 0:
+		for l < r && hash[s[l]] < 0 {
+			hash[s[l]]++
 			l++
-		case 2:
-		case 3:
-			l++
-			hash[s[l]]--
-		default:
 		}
-		c := 0
-		for c < len(t) {
-			if hash[t[c]] < 2 {
-				break
-			}
-			c++
+		if count == 0 && min > r-l+1 {
+			min = r - l + 1
+			res = s[l : r+1]
 		}
-		if c == len(t) {
-			if len(minStr) == 0 {
-				minStr = sw
-			} else if len(sw) < len(minStr) {
-				minStr = sw
-			}
-		}
-		sw = s[l:r]
-
 	}
-	return minStr
+
+	return res
+
 }
