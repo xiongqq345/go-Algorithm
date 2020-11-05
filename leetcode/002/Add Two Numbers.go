@@ -27,9 +27,8 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	nextNode := addTwoNumbers(l1.Next, l2.Next)
 	if sum < 10 {
 		return &ListNode{sum, nextNode}
-	} else {
-		tmpNode := &ListNode{1, nil}
-		return &ListNode{sum - 10, addTwoNumbers(nextNode, tmpNode)}
 	}
 
+	tmpNode := &ListNode{1, nil}
+	return &ListNode{sum - 10, addTwoNumbers(nextNode, tmpNode)}
 }

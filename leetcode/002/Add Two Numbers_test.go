@@ -10,12 +10,10 @@ func Test_addTwoNumbers(t *testing.T) {
 		l1 *ListNode
 		l2 *ListNode
 	}
-	tests := []struct {
+	var tests []struct {
 		name string
 		args args
 		want *ListNode
-	}{
-		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
