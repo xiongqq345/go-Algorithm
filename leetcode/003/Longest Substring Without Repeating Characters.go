@@ -5,7 +5,11 @@ import (
 )
 
 func lengthOfLongestSubstring(s string) int {
-	maxLen :=1
+	if s == "" {
+		return 0
+	}
+
+	maxLen := 1
 	left := 0
 	right := 1
 	str := s[:1]
@@ -15,7 +19,7 @@ func lengthOfLongestSubstring(s string) int {
 		}
 		right++
 		str = s[left:right]
-		if len(str)>maxLen {
+		if len(str) > maxLen {
 			maxLen = len(str)
 		}
 	}
