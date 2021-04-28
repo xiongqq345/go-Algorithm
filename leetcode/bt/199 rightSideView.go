@@ -6,19 +6,19 @@ func rightSideView(root *TreeNode) []int {
 		return nil
 	}
 	var res []int
-	queue := []*TreeNode{root}
-	for len(queue) > 0 {
-		n := len(queue)
-		res = append(res, queue[n-1].Val)
+	q := []*TreeNode{root}
+	for len(q) > 0 {
+		n := len(q)
+		res = append(res, q[n-1].Val)
 		for i := 0; i < n; i++ {
-			if queue[i].Left != nil {
-				queue = append(queue, queue[i].Left)
+			if q[i].Left != nil {
+				q = append(q, q[i].Left)
 			}
-			if queue[i].Right != nil {
-				queue = append(queue, queue[i].Right)
+			if q[i].Right != nil {
+				q = append(q, q[i].Right)
 			}
 		}
-		queue = queue[n:]
+		q = q[n:]
 	}
 	return res
 }
