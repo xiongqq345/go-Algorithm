@@ -1,10 +1,4 @@
-package _43
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package bt
 
 func diameterOfBinaryTree(root *TreeNode) int {
 	var ans int
@@ -22,11 +16,4 @@ func depth(n *TreeNode, ans *int) int {
 		*ans = l + r
 	}
 	return max(l, r) + 1
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }

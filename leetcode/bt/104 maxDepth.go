@@ -1,10 +1,4 @@
-package _104
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package bt
 
 func maxDepth(root *TreeNode) int {
 	if root == nil {

@@ -1,28 +1,52 @@
 package leetcode
 
-func longestPalindrome(s string) (res string) {
+func longestPalindrome(s string) string {
+	var res string
 	for i := 0; i < len(s); i++ {
-		// 以 s[i] 为中心的最长回文子串
 		s1 := palindrome(s, i, i)
-		// 以 s[i] 和 s[i+1] 为中心的最长回文子串
 		s2 := palindrome(s, i, i+1)
-		// res = longest(res, s1, s2)
-		if len(res) <= len(s1) {
+		if len(s1) > len(res) {
 			res = s1
 		}
-		if len(res) <= len(s2) {
-			res = s1
+		if len(s2) > len(res) {
+			res = s2
 		}
 	}
 	return res
 }
 
 func palindrome(s string, l, r int) string {
-	// 防止索引越界
 	for l >= 0 && r < len(s) && s[l] == s[r] {
 		l--
 		r++
 	}
-	// 返回以 s[l] 和 s[r] 为中心的最长回文串
-	return s[l+1 : r-l-1]
+	return s[l+1 : r]
+}
+
+func longestPalindrome2(s string) string {
+	center := 0
+	maxLen := 0
+	length := len(s)
+	res := ""
+	for center < length {
+		left, right := center, center
+		for left >= 0 && s[left] == s[center] {
+			left--
+		}
+		for right < length && s[right] == s[center] { //acafgggaggg
+			right++
+		}
+		nextCenter := right
+		for left >= 0 && right < length && s[left] == s[right] {
+			left--
+			right++
+		}
+		center = nextCenter
+		midMaxLen := right - left
+		if midMaxLen > maxLen {
+			res = s[left+1 : right]
+			maxLen = midMaxLen
+		}
+	}
+	return res
 }

@@ -1,10 +1,4 @@
-package _02
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package bt
 
 func levelOrder(root *TreeNode) [][]int {
 	res := make([][]int, 0)

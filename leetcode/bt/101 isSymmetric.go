@@ -1,10 +1,4 @@
-package _01
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
+package bt
 
 func isSymmetric(root *TreeNode) bool {
 	return compare(root, root)
