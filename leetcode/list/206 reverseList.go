@@ -1,9 +1,4 @@
-package _206
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+package list
 
 func reverseList(head *ListNode) *ListNode {
 	var pre *ListNode
@@ -16,3 +11,11 @@ func reverseList(head *ListNode) *ListNode {
 	}
 	return pre
 }
+
+//func reverse(h *ListNode) *ListNode {
+//	var p *ListNode
+//	for h != nil {
+//		h, h.Next, p = h.Next, p, h
+//	}
+//	return p
+//}

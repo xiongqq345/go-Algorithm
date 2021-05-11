@@ -1,9 +1,4 @@
-package leetcode
-
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+package list
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := new(ListNode)
@@ -18,10 +13,10 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 		dummy = dummy.Next
 	}
-	if l1 != nil {
-		dummy.Next = l1
-	} else {
+	if l1 == nil {
 		dummy.Next = l2
+	} else {
+		dummy.Next = l1
 	}
 	return start.Next
 }
