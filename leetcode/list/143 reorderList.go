@@ -14,22 +14,13 @@ func reorderList(head *ListNode) {
 	mergeList(head, tail)
 }
 
-func mergeList(h1, h2 *ListNode) {
-	for h1 != nil && h2 != nil {
-		t1, t2 := h1.Next, h2.Next
-		h2.Next = t1
-		h1.Next = h2
-		h1, h2 = t1, t2
+func mergeList(n1, n2 *ListNode) {
+	for n1 != nil && n2 != nil {
+		t1, t2 := n1.Next, n2.Next
+		n2.Next = t1
+		n1.Next = n2
+		n1, n2 = t1, t2
 	}
-}
-
-func midNode(h *ListNode) *ListNode {
-	p1, p2 := h, h.Next
-	for p2 != nil && p2.Next != nil {
-		p1 = p1.Next
-		p2 = p2.Next.Next
-	}
-	return p1
 }
 
 func reverse(h *ListNode) *ListNode {
