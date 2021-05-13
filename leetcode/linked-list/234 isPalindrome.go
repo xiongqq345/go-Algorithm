@@ -1,4 +1,4 @@
-package list
+package linked_list
 
 func isPalindrome(head *ListNode) bool {
 	var arr []int

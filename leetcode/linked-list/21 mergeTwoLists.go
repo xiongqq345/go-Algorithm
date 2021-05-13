@@ -1,4 +1,4 @@
-package list
+package linked_list
 
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
 	dummy := new(ListNode)

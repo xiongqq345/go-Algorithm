@@ -1,4 +1,4 @@
-package list
+package linked_list
 
 // 给你一个链表数组，每个链表都已经按升序排列。
 //

@@ -1,4 +1,4 @@
-package list
+package linked_list
 
 // 编写一个程序，找到两个单链表相交的起始节点。
 func getIntersectionNode(headA, headB *ListNode) *ListNode {

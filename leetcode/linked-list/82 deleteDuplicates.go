@@ -1,4 +1,4 @@
-package list
+package linked_list
 
 //删除排序链表中的重复元素 II
 func deleteDuplicates(head *ListNode) *ListNode {

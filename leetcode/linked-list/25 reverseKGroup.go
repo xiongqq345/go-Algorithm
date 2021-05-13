@@ -1,4 +1,4 @@
-package list
+package linked_list
 
 // K 个一组翻转链表
 func reverseKGroup(head *ListNode, k int) *ListNode {
