@@ -24,6 +24,7 @@ func jump1(nums []int) int {
 	return step
 }
 
+// 从前向后贪心
 func jump(nums []int) int {
 	var maxPos, end, step int
 	for i := 0; i < len(nums)-1; i++ {
