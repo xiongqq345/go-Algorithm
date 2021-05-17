@@ -1,11 +1,11 @@
 package bt
 
 func levelOrder(root *TreeNode) [][]int {
-	res := make([][]int, 0)
 	if root == nil {
-		return res
+		return nil
 	}
 
+	res := make([][]int, 0)
 	q := []*TreeNode{root}
 	for i := 0; len(q) > 0; i++ {
 		res = append(res, []int{})
