@@ -1,11 +1,13 @@
 package array
 
-// 给你一个 m 行 n 列的矩阵 matrix ，请按照 顺时针螺旋顺序 ，返回矩阵中的所有元素。
-func spiralOrder(matrix [][]int) []int {
+// 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
+func spiralOrder1(matrix [][]int) []int {
+	if len(matrix) == 0 {
+		return nil
+	}
 	m, n := len(matrix), len(matrix[0])
-	l, r, t, b := 0, n-1, 0, m-1
-	ans := make([]int, m*n)
-	num := 0
+	l, t, r, b := 0, 0, n-1, m-1
+	ans, num := make([]int, m*n), 0
 	for num < m*n {
 		for i := l; i <= r; i++ {
 			ans[num] = matrix[t][i]
