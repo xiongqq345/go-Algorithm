@@ -9,5 +9,5 @@ package backtracking
 //解集不能包含重复的组合。
 
 func combinationSum2(candidates []int, target int) [][]int {
-
+	return nil
 }
