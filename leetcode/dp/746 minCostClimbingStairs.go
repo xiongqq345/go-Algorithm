@@ -19,3 +19,10 @@ func min(a, b int) int {
 	}
 	return b
 }
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
+}
