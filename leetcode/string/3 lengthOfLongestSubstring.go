@@ -1,17 +1,17 @@
 package string
 
 func lengthOfLongestSubstring(s string) int {
-	var m [128]bool
+	var set [128]bool
 	j, ans := 0, 0
 	for i := range s {
 		if i != 0 {
-			m[s[i-1]] = false
+			set[s[i-1]] = false
 		}
-		for j < len(s) && !m[s[j]] {
-			m[s[j]] = true
+		for j < len(s) && !set[s[j]] {
+			set[s[j]] = true
 			j++
 		}
-		ans = max(j-i, ans)
+		ans = max(ans, j-i)
 	}
 	return ans
 }

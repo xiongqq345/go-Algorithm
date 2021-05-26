@@ -1,4 +1,4 @@
-package array
+package binary_search
 
 // 整数数组 nums 按升序排列，数组中的值 互不相同 。
 //
@@ -6,8 +6,7 @@ package array
 //
 //给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。
 func search(nums []int, target int) int {
-	n := len(nums)
-	l, r := 0, n-1
+	l, r := 0, len(nums)-1
 	for l <= r {
 		mid := (l + r) / 2
 		if nums[mid] == target {
@@ -18,12 +17,12 @@ func search(nums []int, target int) int {
 			if target < nums[l] || target > nums[mid] {
 				l = mid + 1
 			} else {
-				r = mid
+				r = mid - 1
 			}
 		} else {
 			//右边有序
 			if target < nums[mid+1] || target > nums[r] {
-				r = mid
+				r = mid - 1
 			} else {
 				l = mid + 1
 			}
