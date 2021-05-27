@@ -11,22 +11,3 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	}
 	return res
 }
-
-//func merge(n1, n2 *ListNode) *ListNode {
-//	dummy := new(ListNode)
-//	t := dummy
-//	for n1 != nil && n2 != nil {
-//		if n1.Val < n2.Val {
-//			t.Next, n1 = n1, n1.Next
-//		} else {
-//			t.Next, n2 = n2, n2.Next
-//		}
-//		t = t.Next
-//	}
-//	if n1 == nil {
-//		t.Next = n2
-//	} else {
-//		t.Next = n1
-//	}
-//	return dummy.Next
-//}

@@ -13,14 +13,6 @@ func sortList(head *ListNode) *ListNode {
 	return merge(l1, l2)
 }
 
-func midNode(head *ListNode) *ListNode {
-	p1, p2 := head, head.Next
-	for p2 != nil && p2.Next != nil {
-		p1, p2 = p1.Next, p2.Next.Next
-	}
-	return p1
-}
-
 func merge(n1, n2 *ListNode) *ListNode {
 	dummy := new(ListNode)
 	t := dummy

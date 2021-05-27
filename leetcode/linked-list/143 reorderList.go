@@ -22,11 +22,3 @@ func mergeList(n1, n2 *ListNode) {
 		n1, n2 = t1, t2
 	}
 }
-
-func reverse(h *ListNode) *ListNode {
-	var p *ListNode
-	for h != nil {
-		h, h.Next, p = h.Next, p, h
-	}
-	return p
-}

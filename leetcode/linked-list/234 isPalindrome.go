@@ -14,3 +14,16 @@ func isPalindrome(head *ListNode) bool {
 	}
 	return true
 }
+
+func isPalindrome2(head *ListNode) bool {
+	mid := midNode(head)
+	head2 := reverse(mid)
+	p1, p2 := head, head2
+	for p1 != nil && p2 != nil {
+		if p1.Val != p2.Val {
+			return false
+		}
+		p1, p2 = p1.Next, p2.Next
+	}
+	return true
+}

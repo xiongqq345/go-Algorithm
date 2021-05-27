@@ -5,14 +5,14 @@ package linked_list
 //输出: 1->3->5->2->4->NULL
 func oddEvenList(head *ListNode) *ListNode {
 	if head == nil {
-		return head
+		return nil
 	}
 	evenHead := head.Next
-	odd, even := head, head.Next
-	for even != nil && even.Next != nil {
-		odd, odd.Next = even.Next, even.Next
-		even, even.Next = odd.Next, odd.Next
+	o, e := head, head.Next
+	for e != nil && e.Next != nil {
+		o, o.Next = e.Next, e.Next
+		e, e.Next = o.Next, o.Next
 	}
-	odd.Next = evenHead
+	o.Next = evenHead
 	return head
 }

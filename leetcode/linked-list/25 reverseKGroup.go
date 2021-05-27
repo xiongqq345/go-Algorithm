@@ -13,11 +13,3 @@ func reverseKGroup(head *ListNode, k int) *ListNode {
 	head.Next = reverseKGroup(p, k)
 	return res
 }
-
-func reverseToNode(h, node *ListNode) *ListNode {
-	var p *ListNode
-	for h != node {
-		h, h.Next, p = h.Next, p, h
-	}
-	return p
-}
