@@ -1,4 +1,4 @@
-package array
+package greedy
 
 // 给定一个非负整数数组，你最初位于数组的第一个位置。
 //
@@ -7,7 +7,6 @@ package array
 //你的目标是使用最少的跳跃次数到达数组的最后一个位置。
 //
 //假设你总是可以到达数组的最后一个位置。
-
 // 从后向前贪心
 func jump1(nums []int) int {
 	pos := len(nums) - 1
@@ -35,11 +34,4 @@ func jump(nums []int) int {
 		}
 	}
 	return step
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }
