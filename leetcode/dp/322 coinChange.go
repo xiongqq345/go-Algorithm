@@ -7,17 +7,17 @@ import "math"
 //你可以认为每种硬币的数量是无限的。
 
 func coinChange(coins []int, amount int) int {
-	f := make([]int, amount+1)
+	dp := make([]int, amount+1)
 	for i := 1; i <= amount; i++ {
-		f[i] = math.MaxInt32
+		dp[i] = math.MaxInt32
 		for _, v := range coins {
-			if i >= v && f[i] > f[i-v]+1 {
-				f[i] = f[i-v] + 1
+			if i >= v && dp[i] > dp[i-v]+1 {
+				dp[i] = dp[i-v] + 1
 			}
 		}
 	}
-	if f[amount] == math.MaxInt32 {
+	if dp[amount] == math.MaxInt32 {
 		return -1
 	}
-	return f[amount]
+	return dp[amount]
 }
