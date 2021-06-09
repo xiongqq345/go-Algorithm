@@ -1,4 +1,4 @@
-package competition
+package _44周赛
 
 import "sort"
 
