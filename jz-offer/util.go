@@ -11,6 +11,12 @@ type ListNode struct {
 	Next *ListNode
 }
 
+type Node struct {
+	Val    int
+	Next   *Node
+	Random *Node
+}
+
 func max(x, y int) int {
 	if x > y {
 		return x
