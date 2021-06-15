@@ -19,5 +19,19 @@ package jz_offer
 //
 
 func maxSlidingWindow(nums []int, k int) []int {
+	var ans, deque []int
+	for i := 0; i < len(nums); i++ {
+		for len(deque) > 0 && deque[len(deque)-1] < nums[i] {
+			deque = deque[:len(deque)-1]
+		}
 
+		deque = append(deque, nums[i])
+		if i >= k && deque[0] == nums[i-k] {
+			deque = deque[1:]
+		}
+		if i >= k-1 {
+			ans = append(ans, deque[0])
+		}
+	}
+	return ans
 }
