@@ -6,7 +6,6 @@ package jz_offer
 func dicesProbability(n int) []float64 {
 	dp := make([]float64, 6)
 	for i := range dp {
-		1
 		dp[i] = 1.0 / 6.0
 	}
 	for i := 2; i <= n; i++ {
