@@ -7,10 +7,8 @@ package dp
 //问总共有多少条不同的路径？
 func uniquePaths(m int, n int) int {
 	dp := make([]int, n)
-	for i := range dp {
-		dp[i] = 1
-	}
-	for i := 1; i < m; i++ {
+	dp[0] = 1
+	for i := 0; i < m; i++ {
 		for j := 1; j < n; j++ {
 			dp[j] += dp[j-1]
 		}

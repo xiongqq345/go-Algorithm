@@ -1,4 +1,4 @@
-package _46
+package design
 
 type LRUCache struct {
 	size, capacity int
@@ -66,10 +66,3 @@ func (c *LRUCache) addToHead(node *LinkedNode) {
 	node.next.prev = node
 	c.head.next = node
 }
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * obj := Constructor(capacity);
- * param_1 := obj.Get(key);
- * obj.Put(key,value);
- */
