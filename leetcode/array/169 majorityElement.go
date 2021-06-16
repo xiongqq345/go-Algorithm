@@ -1,4 +1,4 @@
-package jz_offer
+package array
 
 import "sort"
 
