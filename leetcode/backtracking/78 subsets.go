@@ -20,7 +20,7 @@ func subsets(nums []int) [][]int {
 	return ans
 }
 
-func subsets(nums []int) [][]int {
+func subsets2(nums []int) [][]int {
 	var ans [][]int
 	for mask := 0; mask < 1<<len(nums); mask++ {
 		var set []int
