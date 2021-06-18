@@ -1,7 +1,8 @@
-package _50
+package math
 
+// 实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，xn）。
 func myPow(x float64, n int) float64 {
-	if x >= 0 {
+	if n > 0 {
 		return quickMul(x, n)
 	}
 	return 1 / quickMul(x, -n)
