@@ -1,6 +1,7 @@
 package linked_list
 
-//删除排序链表中的重复元素 II
+// 给出一个升序排序的链表，删除链表中的所有重复出现的元素，只保留原链表中只出现一次的元素。
+
 func deleteDuplicates(head *ListNode) *ListNode {
 	dummy := &ListNode{Next: head}
 	cur := dummy

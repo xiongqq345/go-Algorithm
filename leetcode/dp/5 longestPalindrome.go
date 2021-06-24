@@ -2,18 +2,19 @@ package dp
 
 // 最长回文子串
 func longestPalindrome(s string) string {
-	var res string
+	var ans string
 	for i := range s {
-		s1 := Palindrome(s, i, i)
-		s2 := Palindrome(s, i, i+1)
-		if len(s1) > len(res) {
-			res = s1
-		}
-		if len(s2) > len(res) {
-			res = s2
-		}
+		ans = maxStr(ans, Palindrome(s, i, i))
+		ans = maxStr(ans, Palindrome(s, i, i+1))
 	}
-	return res
+	return ans
+}
+
+func maxStr(s1, s2 string) string {
+	if len(s1) > len(s2) {
+		return s1
+	}
+	return s2
 }
 
 func Palindrome(s string, l, r int) string {

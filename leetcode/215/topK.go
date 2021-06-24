@@ -21,17 +21,17 @@ func quickSelect(arr []int, l, r, k int) int {
 	}
 }
 
-func partition(arr []int, l, r int) int {
+func partition(a []int, l, r int) int {
 	p := rand.Int()%(r-l+1) + l
-	arr[p], arr[r] = arr[r], arr[p]
+	a[p], a[r] = a[r], a[p]
 
-	key, loc := arr[r], l
+	x, pos := a[r], l
 	for i := l; i < r; i++ {
-		if arr[i] < key {
-			arr[loc], arr[i] = arr[i], arr[loc]
-			loc++
+		if a[i] < x {
+			a[pos], a[i] = a[i], a[pos]
+			pos++
 		}
 	}
-	arr[loc], arr[r] = arr[r], arr[loc]
-	return loc
+	a[pos], a[r] = a[r], a[pos]
+	return pos
 }
