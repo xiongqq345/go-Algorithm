@@ -12,7 +12,6 @@ func merge1(intervals [][]int) [][]int {
 		if interval[0] > merged[1] {
 			ans = append(ans, merged)
 			merged = interval
-			continue
 		} else if interval[1] > merged[1] {
 			merged[1] = interval[1]
 		}
