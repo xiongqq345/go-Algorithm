@@ -25,7 +25,7 @@ func abs(a int) int {
 	return a
 }
 
-func isBalanced(root *TreeNode) bool {
+func isBalanced2(root *TreeNode) bool {
 	return recur(root) >= 0
 }
 

@@ -1,4 +1,4 @@
-package _4__双周赛
+package _4_双周赛
 
 func largestMagicSquare(grid [][]int) int {
 	m, n := len(grid), len(grid[0])

@@ -1,4 +1,4 @@
-package _4__双周赛
+package _4_双周赛
 
 import "sort"
 
