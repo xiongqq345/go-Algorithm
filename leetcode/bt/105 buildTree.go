@@ -9,10 +9,11 @@ func buildTree(preorder []int, inorder []int) *TreeNode {
 	for i, v := range inorder {
 		if v == preorder[0] {
 			r = i
+			break
 		}
 	}
 
-	root.Left = buildTree(preorder[1:len(inorder[:r])+1], inorder[:r])
-	root.Right = buildTree(preorder[1+len(inorder[:r]):], inorder[r+1:])
+	root.Left = buildTree(preorder[1:r+1], inorder[:r])
+	root.Right = buildTree(preorder[r+1:], inorder[r+1:])
 	return root
 }
