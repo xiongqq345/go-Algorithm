@@ -7,16 +7,16 @@ package binary_search
 //你可以通过调用bool isBadVersion(version)接口来判断版本号 version 是否在单元测试中出错。实现一个函数来查找第一个错误的版本。你应该尽量减少对调用 API 的次数。
 
 func firstBadVersion(n int) int {
-	l, r := 1, n
-	for l < r {
-		mid := l + (r-l)/2
-		if isBadVersion(mid) {
-			r = mid
+	i, j := 1, n
+	for i < j {
+		h := int(uint(i+j) >> 1)
+		if isBadVersion(h) {
+			j = h
 		} else {
-			l = mid + 1
+			i = h + 1
 		}
 	}
-	return l
+	return i
 }
 
 func isBadVersion(int) bool {
