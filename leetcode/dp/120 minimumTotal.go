@@ -1,4 +1,4 @@
-package _20
+package dp
 
 import "math"
 
@@ -20,13 +20,6 @@ func minimumTotal(triangle [][]int) int {
 		}
 	}
 	return ans
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
 
 func minimumTotal2(triangle [][]int) int {

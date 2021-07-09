@@ -1,4 +1,4 @@
-package _75
+package array
 
 func sortColors(nums []int) {
 	p0, p2 := 0, len(nums)-1

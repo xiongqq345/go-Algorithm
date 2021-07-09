@@ -1,5 +1,8 @@
-package _84
+package list_stack
 
+// 给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。
+//
+//求在该柱状图中，能够勾勒出来的矩形的最大面积。
 func largestRectangleArea(heights []int) int {
 	var stack []int
 	var ans int
@@ -14,11 +17,4 @@ func largestRectangleArea(heights []int) int {
 		stack = append(stack, i)
 	}
 	return ans
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
 }

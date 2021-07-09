@@ -1,7 +1,16 @@
-package leetcode
+package array
 
 import "sort"
 
+// 给你一个 无重叠的 ，按照区间起始端点排序的区间列表。
+//
+//在列表中插入一个新的区间，你需要确保列表中的区间仍然有序且不重叠（如果有必要的话，可以合并区间）。
+//
+//
+//
+//来源：力扣（LeetCode）
+//链接：https://leetcode-cn.com/problems/insert-interval
+//著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 func insert(intervals [][]int, newInterval []int) [][]int {
 	intervals = append(intervals, newInterval)
 	sort.Slice(intervals, func(i, j int) bool {
