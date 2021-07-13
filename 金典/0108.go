@@ -1,5 +1,6 @@
 package coding
 
+// 编写一种算法，若M × N矩阵中某个元素为0，则将其所在的行与列清零。
 func setZeroes(matrix [][]int) {
 	n, m := len(matrix), len(matrix[0])
 	row0, col0 := false, false
