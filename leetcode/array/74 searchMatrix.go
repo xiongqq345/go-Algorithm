@@ -5,19 +5,13 @@ package array
 //每行中的整数从左到右按升序排列。
 //每行的第一个整数大于前一行的最后一个整数。
 func searchMatrix(matrix [][]int, target int) bool {
-	if len(matrix) == 0 {
-		return false
-	}
-	m, n := len(matrix), len(matrix[0])
-	var row int
-	for ; row < m-1; row++ {
-		if target < matrix[row+1][0] {
-			break
-		}
-	}
-
-	for col := 0; col < n; col++ {
-		if matrix[row][col] == target {
+	i, j := len(matrix)-1, 0
+	for i >= 0 && j < len(matrix[0]) {
+		if matrix[i][j] < target {
+			j++
+		} else if matrix[i][j] > target {
+			i--
+		} else {
 			return true
 		}
 	}

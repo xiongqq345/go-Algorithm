@@ -4,33 +4,27 @@ import "sort"
 
 //给你一个包含 n 个整数的数组nums，判断nums中是否存在三个元素 a，b，c ，使得a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
 func threeSum(nums []int) [][]int {
-	n := len(nums)
 	sort.Ints(nums)
 	var ans [][]int
-	for first := 0; first < n-2; first++ {
-		if nums[first] > 0 {
+	for i := 0; i < len(nums)-2; i++ {
+		if nums[i] > 0 {
 			break
 		}
-		if first > 0 && nums[first] == nums[first-1] {
+		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		third := n - 1
-		target := -nums[first]
-		for second := first + 1; second < n-1; second++ {
-			if second > first+1 && nums[second] == nums[second-1] {
+		for j, k := i+1, len(nums)-1; j < k; {
+			if j != i+1 && nums[j] == nums[j-1] {
+				j++
 				continue
 			}
-
-			for nums[second]+nums[third] > target && second < third {
-				third--
-			}
-
-			if second == third {
-				break
-			}
-
-			if nums[second]+nums[third] == target {
-				ans = append(ans, []int{nums[first], nums[second], nums[third]})
+			if nums[i]+nums[j]+nums[k] < 0 {
+				j++
+			} else if nums[i]+nums[j]+nums[k] > 0 {
+				k--
+			} else {
+				ans = append(ans, []int{nums[i], nums[j], nums[k]})
+				j++
 			}
 		}
 	}
