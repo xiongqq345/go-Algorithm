@@ -1,32 +1,51 @@
 package design
 
+import "container/list"
+
+const base = 769
+
+type entry struct {
+	key, value int
+}
+
 type MyHashMap struct {
+	data []list.List
 }
 
-/** Initialize your data structure here. */
 func Constructor() MyHashMap {
-
+	return MyHashMap{make([]list.List, base)}
 }
 
-/** value will always be non-negative. */
-func (this *MyHashMap) Put(key int, value int) {
-
+func (m *MyHashMap) hash(key int) int {
+	return key % base
 }
 
-/** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
-func (this *MyHashMap) Get(key int) int {
-
+func (m *MyHashMap) Put(key, value int) {
+	h := m.hash(key)
+	for e := m.data[h].Front(); e != nil; e = e.Next() {
+		if et := e.Value.(entry); et.key == key {
+			e.Value = entry{key, value}
+			return
+		}
+	}
+	m.data[h].PushBack(entry{key, value})
 }
 
-/** Removes the mapping of the specified value key if this map contains a mapping for the key */
-func (this *MyHashMap) Remove(key int) {
-
+func (m *MyHashMap) Get(key int) int {
+	h := m.hash(key)
+	for e := m.data[h].Front(); e != nil; e = e.Next() {
+		if et := e.Value.(entry); et.key == key {
+			return et.value
+		}
+	}
+	return -1
 }
 
-/**
- * Your MyHashMap object will be instantiated and called as such:
- * obj := Constructor();
- * obj.Put(key,value);
- * param_2 := obj.Get(key);
- * obj.Remove(key);
- */
+func (m *MyHashMap) Remove(key int) {
+	h := m.hash(key)
+	for e := m.data[h].Front(); e != nil; e = e.Next() {
+		if e.Value.(entry).key == key {
+			m.data[h].Remove(e)
+		}
+	}
+}
