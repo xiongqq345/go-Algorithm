@@ -6,7 +6,7 @@ type StackOfPlates struct {
 }
 
 func Constructor(cap int) StackOfPlates {
-	return StackOfPlates{make([][]int, 0), cap}
+	return StackOfPlates{Cap: cap}
 }
 
 func (s *StackOfPlates) Push(val int) {

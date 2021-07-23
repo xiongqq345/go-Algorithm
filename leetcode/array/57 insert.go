@@ -24,7 +24,7 @@ func merge(intervals [][]int) [][]int {
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
-	result := make([][]int, 0)
+	var result [][]int
 	lens := len(intervals)
 	for i := 0; i < lens; {
 		if i == lens-1 {

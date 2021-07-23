@@ -6,7 +6,7 @@ package array
 func subsets(nums []int) [][]int {
 	var ans [][]int
 	for mask := 0; mask < 1<<len(nums); mask++ {
-		set := make([]int, 0)
+		var set []int
 		for i, v := range nums {
 			if mask>>i&1 == 1 {
 				set = append(set, v)

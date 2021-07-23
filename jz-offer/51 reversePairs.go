@@ -13,7 +13,7 @@ func reversePairs(nums []int) int {
 		l := mergeSort(arr[0:middle])
 		r := mergeSort(arr[middle:])
 		return func(l, r []int) []int {
-			result := make([]int, 0)
+			var result []int
 			m, n := 0, 0
 			for m < len(l) && n < len(r) {
 				if l[m] <= r[n] {

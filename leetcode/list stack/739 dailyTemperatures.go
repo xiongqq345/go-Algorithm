@@ -4,7 +4,7 @@ package list_stack
 //
 //例如，给定一个列表temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是[1, 1, 4, 2, 1, 1, 0, 0]。
 func dailyTemperatures(temperatures []int) []int {
-	stack := make([]int, 0)
+	var stack []int
 	ans := make([]int, len(temperatures))
 	for i, v := range temperatures {
 		for len(stack) > 0 && temperatures[stack[len(stack)-1]] < v {

@@ -1,16 +1,16 @@
 package jz_offer
 
 func levelOrder(root *TreeNode) [][]int {
-	q := []*TreeNode{root}
-	res := make([][]int, 0)
 	if root == nil {
-		return res
+		return nil
 	}
+	q := []*TreeNode{root}
+	var ans [][]int
 	for i := 0; len(q) > 0; i++ {
-		res = append(res, []int{})
+		ans = append(ans, []int{})
 		var nq []*TreeNode
 		for _, node := range q {
-			res[i] = append(res[i], node.Val)
+			ans[i] = append(ans[i], node.Val)
 			if node.Left != nil {
 				nq = append(nq, node.Left)
 			}
@@ -19,12 +19,12 @@ func levelOrder(root *TreeNode) [][]int {
 			}
 		}
 		if i%2 == 1 {
-			layer := res[i]
+			layer := ans[i]
 			for k, n := 0, len(layer)-1; k < len(layer)/2; k++ {
 				layer[k], layer[n-k] = layer[n-k], layer[k]
 			}
 		}
 		q = nq
 	}
-	return res
+	return ans
 }

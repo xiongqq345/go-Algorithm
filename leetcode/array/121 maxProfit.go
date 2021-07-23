@@ -8,10 +8,3 @@ func maxProfit(prices []int) int {
 	}
 	return profit
 }
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
