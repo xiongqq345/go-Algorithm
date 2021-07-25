@@ -1,4 +1,4 @@
-package binary_search
+package array
 
 //给定一个已按照 升序排列 的整数数组numbers ，请你从数组中找出两个数满足相加之和等于目标数target 。
 //
@@ -6,14 +6,14 @@ package binary_search
 //
 //你可以假设每个输入只对应唯一的答案，而且你不可以重复使用相同的元素。
 func twoSum(nums []int, target int) []int {
-	l, r := 0, len(nums)-1
-	for l < r {
-		if nums[l]+nums[r] < target {
-			l++
-		} else if nums[l]+nums[r] > target {
-			r--
+	i, j := 0, len(nums)-1
+	for i < j {
+		if nums[i]+nums[j] < target {
+			i++
+		} else if nums[i]+nums[j] > target {
+			j--
 		} else {
-			return []int{l + 1, r + 1}
+			return []int{i + 1, j + 1}
 		}
 	}
 	return []int{-1, -1}

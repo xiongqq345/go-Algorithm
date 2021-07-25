@@ -1,4 +1,4 @@
-package bfs
+package dfs_bfs
 
 // N x N 的棋盘 board 上，按从 1 到 N*N 的数字给方格编号，编号 从左下角开始，每一行交替方向。
 //

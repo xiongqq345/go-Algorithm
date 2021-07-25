@@ -11,8 +11,8 @@ func MergeSort(arr []int) []int {
 }
 
 func merge(l, r []int) []int {
-	result := make([]int, 0)
-	m, n := 0, 0
+	var result []int
+	var m, n int
 	for m < len(l) && n < len(r) {
 		if l[m] <= r[n] {
 			result = append(result, l[m])

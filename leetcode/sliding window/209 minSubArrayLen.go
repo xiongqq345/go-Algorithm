@@ -1,4 +1,4 @@
-package array
+package sliding_window
 
 import "math"
 
