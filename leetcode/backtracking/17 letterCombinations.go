@@ -16,10 +16,10 @@ var phoneMap map[string]string = map[string]string{
 var combinations []string
 
 func letterCombinations(digits string) []string {
+	combinations = []string{}
 	if len(digits) == 0 {
 		return combinations
 	}
-	combinations = []string{}
 	backtrack(digits, 0, "")
 	return combinations
 }
@@ -27,10 +27,9 @@ func letterCombinations(digits string) []string {
 func backtrack(digits string, index int, combination string) {
 	if index == len(digits) {
 		combinations = append(combinations, combination)
-	} else {
-		letters := phoneMap[string(digits[index])]
-		for _, v := range letters {
-			backtrack(digits, index+1, combination+string(v))
-		}
+		return
+	}
+	for _, v := range phoneMap[string(digits[index])] {
+		backtrack(digits, index+1, combination+string(v))
 	}
 }

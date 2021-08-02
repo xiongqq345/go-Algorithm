@@ -6,9 +6,9 @@ package backtracking
 
 func exist(board [][]byte, word string) bool {
 	m, n := len(board), len(board[0])
-	used := make([][]bool, m)
-	for i := range used {
-		used[i] = make([]bool, n)
+	vis := make([][]bool, m)
+	for i := range vis {
+		vis[i] = make([]bool, n)
 	}
 
 	var helper func(int, int, int) bool
@@ -19,10 +19,10 @@ func exist(board [][]byte, word string) bool {
 		if i < 0 || i >= m || j < 0 || j >= n {
 			return false
 		}
-		if used[i][j] || board[i][j] != word[index] {
+		if vis[i][j] || board[i][j] != word[index] {
 			return false
 		}
-		used[i][j] = true
+		vis[i][j] = true
 
 		can := helper(i, j+1, index+1) ||
 			helper(i, j-1, index+1) ||
@@ -32,7 +32,7 @@ func exist(board [][]byte, word string) bool {
 		if can {
 			return true
 		}
-		used[i][j] = false
+		vis[i][j] = false
 		return false
 	}
 	for i := range board {
