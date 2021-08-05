@@ -1,6 +1,9 @@
 package binary_search
 
-import "math"
+import (
+	"math"
+	"sort"
+)
 
 // 峰值元素是指其值大于左右相邻值的元素。
 //
@@ -18,6 +21,12 @@ func findPeakElement(nums []int) int {
 		}
 	}
 	return l
+}
+
+func findPeakElement(nums []int) int {
+	return sort.Search(len(nums)-1, func(i int) bool {
+		return nums[i] > nums[i+1]
+	})
 }
 
 func findPeakElement(nums []int) int {
