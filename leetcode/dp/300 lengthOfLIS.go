@@ -26,9 +26,7 @@ func lengthOfLIS2(nums []int) int {
 		if v > d[len(d)-1] {
 			d = append(d, v)
 		} else {
-			d[sort.Search(len(d), func(i int) bool {
-				return d[i] >= v
-			})] = v
+			d[sort.SearchInts(d, v)] = v
 		}
 	}
 	return len(d)
