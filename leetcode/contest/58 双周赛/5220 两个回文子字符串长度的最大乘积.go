@@ -8,13 +8,10 @@ package _8_双周赛
 //
 //回文字符串 指的是一个从前往后读和从后往前读一模一样的字符串。子字符串 指的是一个字符串中一段连续字符。
 
-var mp map[int]int
-
 func maxProduct(s string) int64 {
-	mp = make(map[int]int)
 	ans := 1
 	for i := 1; i < len(s)-1; i++ {
-		ans = max(ans, longestPalindrome(s[:i])*longestPalindrome2(i, s[i:]))
+		ans = max(ans, longestPalindrome(s[:i])*longestPalindrome(s[i:]))
 	}
 	return int64(ans)
 }
@@ -23,13 +20,6 @@ func longestPalindrome(s string) int {
 	var ans int
 	for i := range s {
 		ans = max(ans, Palindrome(s, i, i))
-	}
-	return ans
-}
-func longestPalindrome2(p int, s string) int {
-	var ans int
-	for i := range s {
-		ans = max(ans, Palindrome2(s, i, i, p))
 	}
 	return ans
 }
@@ -42,21 +32,6 @@ func max(x, y int) int {
 }
 
 func Palindrome(s string, l, r int) int {
-	if v, ok := mp[l]; ok {
-		if l-v >= 0 {
-			return 2*mp[l] + 1
-		}
-	}
-	tmp := l
-	for l >= 0 && r < len(s) && s[l] == s[r] {
-		l--
-		r++
-	}
-	mp[l] = max(mp[l], tmp-l-1)
-	return r - l - 1
-}
-
-func Palindrome2(s string, l, r, p int) int {
 	for l >= 0 && r < len(s) && s[l] == s[r] {
 		l--
 		r++
