@@ -13,7 +13,7 @@ func main() {
 	xmin, ymin := big.NewFloat(math.MaxFloat32), big.NewFloat(math.MaxFloat32)
 	for n > 0 {
 		fmt.Scan(&x, &y)
-		bigx := new(big.Float).SetFloat64(x).GobEncode()
+		bigx, _ := new(big.Float).SetFloat64(x).GobEncode()
 		yminf, _ := ymin.Float64()
 		xminf, _ := xmin.Float64()
 		if x == 0 && y < yminf {

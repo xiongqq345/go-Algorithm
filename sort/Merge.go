@@ -4,9 +4,9 @@ func MergeSort(arr []int) []int {
 	if len(arr) < 2 {
 		return arr
 	}
-	middle := len(arr) / 2
-	l := MergeSort(arr[0:middle])
-	r := MergeSort(arr[middle:])
+	mid := len(arr) / 2
+	l := MergeSort(arr[:mid])
+	r := MergeSort(arr[mid:])
 	return merge(l, r)
 }
 
