@@ -1,5 +1,7 @@
 package binary_search
 
+import "sort"
+
 // 实现int sqrt(int x)函数。
 //
 //计算并返回x的平方根，其中x 是非负整数。
@@ -17,4 +19,14 @@ func mySqrt(x int) int {
 		}
 	}
 	return ans
+}
+
+func mySqrt2(x int) int {
+	i := sort.Search(x/2+1, func(i int) bool {
+		return i*i > x
+	})
+	if i*i == x {
+		return i
+	}
+	return i - 1
 }
