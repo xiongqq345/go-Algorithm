@@ -1,6 +1,9 @@
-package dp
+package greedy
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 // 给出 n 个数对。 在每一个数对中，第一个数字总是比第二个数字小。
 //
@@ -10,19 +13,17 @@ import "sort"
 //
 func findLongestChain(pairs [][]int) int {
 	sort.Slice(pairs, func(i, j int) bool {
-		if pairs[i][0] < pairs[j][0] {
-			return true
-		} else if pairs[i][0] > pairs[j][0] {
-			return false
-		}
-		return pairs[i][1] < pairs[j][1]
+		return pairs[i][0] < pairs[j][0]
 	})
-	last := pairs[0][1]
-	cnt := 1
-	for i := 1; i < len(pairs); i++ {
-		if pairs[i][0] > last {
+	pre := math.MinInt32
+	var cnt int
+	for _, pair := range pairs {
+		if pair[0] > pre {
 			cnt++
-			last = pairs[i][1]
+			pre = pair[1]
+		}
+		if pair[1] < pre {
+			pre = pair[1]
 		}
 	}
 	return cnt
