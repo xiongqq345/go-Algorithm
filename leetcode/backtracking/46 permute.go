@@ -4,7 +4,7 @@ package backtracking
 func permute(nums []int) [][]int {
 	n := len(nums)
 	var ans [][]int
-	used := make([]bool, n)
+	vis := make([]bool, n)
 	var dfs func([]int)
 	dfs = func(vals []int) {
 		if len(vals) == n {
@@ -12,12 +12,12 @@ func permute(nums []int) [][]int {
 			return
 		}
 		for i := 0; i < n; i++ {
-			if used[i] {
+			if vis[i] {
 				continue
 			}
-			used[i] = true
+			vis[i] = true
 			dfs(append(vals, nums[i]))
-			used[i] = false
+			vis[i] = false
 		}
 	}
 	dfs([]int{})
