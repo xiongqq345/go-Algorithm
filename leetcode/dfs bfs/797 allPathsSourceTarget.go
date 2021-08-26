@@ -7,20 +7,17 @@ package dfs_bfs
 func allPathsSourceTarget(graph [][]int) [][]int {
 	n := len(graph)
 	var ans [][]int
-	path := []int{0}
-	var helper func(int)
-	helper = func(pos int) {
+	var helper func(int, []int)
+	helper = func(pos int, path []int) {
 		if pos == n-1 {
 			ans = append(ans, append([]int(nil), path...))
 			return
 		}
 
 		for i := range graph[pos] {
-			path = append(path, graph[pos][i])
-			helper(graph[pos][i])
-			path = path[:len(path)-1]
+			helper(graph[pos][i], append(path, graph[pos][i]))
 		}
 	}
-	helper(0)
+	helper(0, []int{0})
 	return ans
 }
