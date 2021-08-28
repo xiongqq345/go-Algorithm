@@ -23,10 +23,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		sum := v1 + v2 + carry
 		sum, carry = sum%10, sum/10
 		if head == nil {
-			head = &ListNode{
-				sum,
-				nil,
-			}
+			head = &ListNode{sum, nil}
 			tail = head
 		} else {
 			tail.Next = &ListNode{sum, nil}
