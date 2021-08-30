@@ -5,21 +5,20 @@ func permute(nums []int) [][]int {
 	n := len(nums)
 	var ans [][]int
 	vis := make([]bool, n)
-	var dfs func([]int)
-	dfs = func(vals []int) {
-		if len(vals) == n {
-			ans = append(ans, append([]int{}, vals...))
+	var helper func([]int)
+	helper = func(path []int) {
+		if len(path) == n {
+			ans = append(ans, append([]int{}, path...))
 			return
 		}
 		for i := 0; i < n; i++ {
-			if vis[i] {
-				continue
+			if !vis[i] {
+				vis[i] = true
+				helper(append(path, nums[i]))
+				vis[i] = false
 			}
-			vis[i] = true
-			dfs(append(vals, nums[i]))
-			vis[i] = false
 		}
 	}
-	dfs([]int{})
+	helper(nil)
 	return ans
 }

@@ -6,25 +6,23 @@ package binary_search
 //
 //给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回-1。
 func search(nums []int, target int) int {
-	l, r := 0, len(nums)-1
-	for l <= r {
-		mid := (l + r) / 2
-		if nums[mid] == target {
-			return mid
+	i, j := 0, len(nums)-1
+	for i <= j {
+		h := int(uint(i+j) >> 1)
+		if nums[h] == target {
+			return h
 		}
-		if nums[l] <= nums[mid] {
-			// 左边有序
-			if target < nums[l] || target > nums[mid] {
-				l = mid + 1
+		if nums[i] <= nums[h] {
+			if target < nums[i] || target > nums[h] {
+				i = h + 1
 			} else {
-				r = mid - 1
+				j = h - 1
 			}
 		} else {
-			//右边有序
-			if target < nums[mid+1] || target > nums[r] {
-				r = mid - 1
+			if target > nums[j] || target < nums[h] {
+				j = h - 1
 			} else {
-				l = mid + 1
+				i = h + 1
 			}
 		}
 	}
