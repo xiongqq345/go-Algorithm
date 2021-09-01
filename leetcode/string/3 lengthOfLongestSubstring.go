@@ -2,9 +2,9 @@ package string
 
 func lengthOfLongestSubstring(s string) int {
 	var set [128]bool
-	j, ans := 0, 0
-	for i := range s {
-		if i != 0 {
+	var ans int
+	for i, j := 0, 0; i < len(s); i++ {
+		if i > 0 {
 			set[s[i-1]] = false
 		}
 		for j < len(s) && !set[s[j]] {

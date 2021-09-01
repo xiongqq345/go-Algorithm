@@ -1,17 +1,22 @@
 package design
 
+type LinkedNode struct {
+	k, v       int
+	prev, next *LinkedNode
+}
+
 type LRUCache struct {
-	size, capacity int
-	cache          map[int]*LinkedNode
-	head, tail     *LinkedNode
+	len, cap   int
+	cache      map[int]*LinkedNode
+	head, tail *LinkedNode
 }
 
 func Constructor(capacity int) LRUCache {
 	c := LRUCache{
-		capacity: capacity,
-		cache:    make(map[int]*LinkedNode, capacity),
-		head:     new(LinkedNode),
-		tail:     new(LinkedNode),
+		cap:   capacity,
+		cache: make(map[int]*LinkedNode, capacity),
+		head:  new(LinkedNode),
+		tail:  new(LinkedNode),
 	}
 	c.head.next = c.tail
 	c.tail.prev = c.head
@@ -31,10 +36,10 @@ func (c *LRUCache) Put(key int, value int) {
 	if n, ok := c.cache[key]; ok {
 		c.remove(n)
 	} else {
-		c.size++
-		if c.size > c.capacity {
+		c.len++
+		if c.len > c.cap {
 			c.removeTail()
-			c.size--
+			c.len--
 		}
 	}
 
@@ -43,11 +48,6 @@ func (c *LRUCache) Put(key int, value int) {
 	node.v = value
 	c.addToHead(node)
 	c.cache[key] = node
-}
-
-type LinkedNode struct {
-	k, v       int
-	prev, next *LinkedNode
 }
 
 func (c *LRUCache) remove(node *LinkedNode) {
