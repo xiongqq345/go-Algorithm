@@ -4,15 +4,15 @@ package dp
 func minDistance(word1 string, word2 string) int {
 	dp := make([]int, len(word2)+1)
 	for i := range word1 {
-		var upLeft int
+		var lu int
 		for j := range word2 {
 			tmp := dp[j+1]
 			if word1[i] == word2[j] {
-				dp[j+1] = upLeft + 1
+				dp[j+1] = lu + 1
 			} else {
 				dp[j+1] = max(dp[j], dp[j+1])
 			}
-			upLeft = tmp
+			lu = tmp
 		}
 	}
 	return len(word1) + len(word2) - 2*dp[len(word2)]
