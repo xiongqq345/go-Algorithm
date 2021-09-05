@@ -9,10 +9,10 @@ func largestRectangleArea(heights []int) int {
 	heights = append(append([]int{0}, heights...), 0)
 	for i := 0; i < len(heights); i++ {
 		for len(stack) > 0 && heights[stack[len(stack)-1]] > heights[i] {
-			cur := stack[len(stack)-1]
+			cur := heights[stack[len(stack)-1]]
 			stack = stack[:len(stack)-1]
-			left, right := stack[len(stack)-1], i
-			ans = max(ans, (right-left-1)*heights[cur])
+			l, r := stack[len(stack)-1], i
+			ans = max(ans, (r-l-1)*cur)
 		}
 		stack = append(stack, i)
 	}
