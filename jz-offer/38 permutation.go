@@ -6,14 +6,13 @@ import "sort"
 //你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
 func permutation(s string) []string {
 	var ans []string
-	var path []byte
 	str := []byte(s)
 	sort.Slice(str, func(i, j int) bool {
 		return str[i] < str[j]
 	})
 	used := make([]bool, len(s))
-	var helper func()
-	helper = func() {
+	var helper func([]byte)
+	helper = func(path []byte) {
 		if len(path) == len(s) {
 			ans = append(ans, string(path))
 			return
@@ -23,14 +22,12 @@ func permutation(s string) []string {
 				continue
 			}
 			if !used[i] {
-				path = append(path, str[i])
 				used[i] = true
-				helper()
+				helper(append(path, str[i]))
 				used[i] = false
-				path = path[:len(path)-1]
 			}
 		}
 	}
-	helper()
+	helper(nil)
 	return ans
 }
