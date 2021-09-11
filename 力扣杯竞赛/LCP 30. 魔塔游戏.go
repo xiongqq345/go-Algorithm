@@ -1,4 +1,4 @@
-package 力扣杯竞赛真题集
+package 力扣杯竞赛
 
 import "container/heap"
 
