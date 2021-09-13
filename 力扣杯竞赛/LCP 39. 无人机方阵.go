@@ -6,15 +6,15 @@ package 力扣杯竞赛
 //切换无人机展示的灯光颜色
 //给定两个大小均为 N*M 的二维数组 source 和 target 表示无人机方阵表演的两种颜色图案，由于无人机切换灯光颜色的耗能很大，请返回从 source 到 target 最少需要多少架无人机切换灯光颜色。
 func minimumSwitchingTimes(source [][]int, target [][]int) int {
-	set := make(map[int]int)
+	mp := make(map[int]int)
 	for i := range target {
 		for j := range target[i] {
-			set[target[i][j]]++
-			set[source[i][j]]--
+			mp[target[i][j]]++
+			mp[source[i][j]]--
 		}
 	}
 	var ans int
-	for _, v := range set {
+	for _, v := range mp {
 		if v > 0 {
 			ans += v
 		}
