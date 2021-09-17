@@ -1,4 +1,4 @@
-package array
+package jz_offerII
 
 import (
 	"math/rand"
@@ -28,13 +28,13 @@ func partition(a []int, l, r int) int {
 	p := rand.Int()%(r-l+1) + l
 	a[r], a[p] = a[p], a[r]
 
-	pos := l
+	p = l
 	for i := l; i < r; i++ {
 		if a[i] < a[r] {
-			a[pos], a[i] = a[i], a[pos]
-			pos++
+			a[p], a[i] = a[i], a[p]
+			p++
 		}
 	}
-	a[r], a[pos] = a[pos], a[r]
-	return pos
+	a[r], a[p] = a[p], a[r]
+	return p
 }
