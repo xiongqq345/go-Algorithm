@@ -30,6 +30,18 @@ func gcd(a, b int) int {
 	return b
 }
 
+// 原地去重
+func unique(a []int) []int {
+	k := 0
+	for _, v := range a[1:] {
+		if a[k] != v {
+			k++
+			a[k] = v
+		}
+	}
+	return a[:k+1]
+}
+
 type heapInt []int
 
 //Less  小于就是小跟堆，大于号就是大根堆
