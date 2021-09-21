@@ -19,6 +19,15 @@ package jz_offerII
  *     Next *ListNode
  * }
  */
-func reorderList(head *ListNode) {
-
+func reorderList(h *ListNode) {
+	mid := midNode(h)
+	h2 := reverseList(mid.Next)
+	mid.Next = nil
+	p1, p2 := h, h2
+	for p1 != nil && p2 != nil {
+		n1, n2 := p1.Next, p2.Next
+		p1.Next = p2
+		p2.Next = n1
+		p1, p2 = n1, n2
+	}
 }
