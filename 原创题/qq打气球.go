@@ -44,11 +44,8 @@ func f(n, m int, arr []int) int {
 	return minn
 }
 
-func contains(a1 []int) bool {
-	for i, v := range a1 {
-		if i == 0 {
-			continue
-		}
+func contains(a []int) bool {
+	for _, v := range a[1:] {
 		if v <= 0 {
 			return false
 		}
