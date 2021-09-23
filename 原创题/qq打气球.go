@@ -16,17 +16,15 @@ func main() {
 	fmt.Scan(&n, &m)
 
 	arr := make([]int, n)
-	var t int
 	for i := 0; i < n; i++ {
-		fmt.Scan(&t)
-		arr[i] = t
+		fmt.Scan(&arr[i])
 	}
 	output := f(n, m, arr)
 	fmt.Println(output)
 }
 
 func f(n, m int, arr []int) int {
-	minn := n + 1
+	ans := n + 1
 	tmp := make([]int, m+1)
 	for i, j := 0, 0; j < n; {
 		for !contains(tmp) {
@@ -34,14 +32,14 @@ func f(n, m int, arr []int) int {
 			j++
 		}
 
-		minn = min(minn, j-i)
+		ans = min(ans, j-i)
 		tmp[arr[i]]--
 		i++
 	}
-	if minn == n+1 {
+	if ans == n+1 {
 		return -1
 	}
-	return minn
+	return ans
 }
 
 func contains(a []int) bool {

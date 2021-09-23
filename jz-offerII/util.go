@@ -26,6 +26,17 @@ type ListNode struct {
 	Next *ListNode
 }
 
+type Node struct {
+	Val  int
+	Next *Node
+}
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
 func midNode(h *ListNode) *ListNode {
 	p1, p2 := h, h.Next
 	for p2 != nil && p2.Next != nil {
