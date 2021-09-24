@@ -12,8 +12,8 @@ type RecentCounter struct {
 	reqs []int
 }
 
-func Constructor() RecentCounter {
-	return RecentCounter{}
+func Constructor() (_ RecentCounter) {
+	return
 }
 
 func (rc *RecentCounter) Ping(t int) int {
