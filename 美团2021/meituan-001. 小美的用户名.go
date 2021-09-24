@@ -24,13 +24,9 @@ func main() {
 	var n int
 	var line string
 	fmt.Scan(&n)
-	ans := make([]bool, n)
 	for i := 0; i < n; i++ {
 		fmt.Scan(&line)
-		ans[i] = check(line)
-	}
-	for _, b := range ans {
-		if b {
+		if check(line) {
 			fmt.Println("Accept")
 		} else {
 			fmt.Println("Wrong")
