@@ -55,6 +55,7 @@ func in(a []int, n int) bool {
 }
 
 func main() {
+	sc.Split(bufio.ScanWords)
 	n := scanInt()
 	k := scanInt()
 	s := scanUint64()
