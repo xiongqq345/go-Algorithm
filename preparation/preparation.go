@@ -29,6 +29,14 @@ func scanInts(n int) []int {
 	return a
 }
 
+func scanInt64s(n int) []int64 {
+	a := make([]int64, n)
+	for i := 0; i < n; i++ {
+		a[i] = scanInt64()
+	}
+	return a
+}
+
 func max(a, b int) int {
 	if a > b {
 		return a
